@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'intro';
+  name = 'Emrah';
+
+  addToCard() {
+    alert("sdafsadf")
+  }
+  addNewContact() {
+    alert("Added person")
+  }
 }
