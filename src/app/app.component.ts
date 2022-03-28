@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+
 
 @Component({
   selector: 'app-root',
@@ -7,12 +11,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'intro';
-  name = 'Emrah';
-
-  addToCard() {
-    alert("sdafsadf")
-  }
-  addNewContact() {
-    alert("Added person")
-  }
 }
