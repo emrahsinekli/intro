@@ -10,5 +10,6 @@ import {MatInputModule} from '@angular/material/input';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  opened = false
   title = 'intro';
 }

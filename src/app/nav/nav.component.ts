@@ -11,10 +11,5 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addToCard() {
-    alert("sdafsadf")
-  }
-  addNewContact() {
-    alert("Added person")
-  }
+
 }

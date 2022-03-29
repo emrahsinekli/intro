@@ -1,9 +1,25 @@
-<div class="row">
-    <div class="col-md-3">
-        <app-nav></app-nav>
-    </div>
-    <div class="col-md-9">
-        <router-outlet></router-outlet>
-    </div>
+<div class="pos-f-t">
+
+  <nav class="navbar navbar-dark bg-dark">
+    <button (click)="opened=!opened" class="navbar-toggler" type="button" data-toggle="collapse"
+      aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <form class="form-inline my-3 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    </form>
+  </nav>
 </div>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" [(opened)]="opened">
+    <app-nav></app-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
 
