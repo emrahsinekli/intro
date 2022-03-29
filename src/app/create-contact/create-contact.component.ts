@@ -1,5 +1,8 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { NgForm } from '@angular/forms';
+import { Contacts } from '../contacts';
+import { PhoneCodes } from '../PhoneCodes';
 
 
 
@@ -10,11 +13,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateContactComponent implements OnInit {
 
-  
-  constructor() { }
+
+  constructor(private htttp: HttpClient) { }
+  pathPhoneCode = "http://localhost:3000/phoneCode";
+  pathContacts = "http://localhost:3000/contact";
+  model: Contacts = new Contacts();
+  phoneCodes!: PhoneCodes[];
 
   ngOnInit(): void {
+    this.htttp.get<PhoneCodes[]>(this.pathPhoneCode).subscribe(data => {
+      this.phoneCodes = data;
+    });
   }
-
+  add(form: NgForm) {
+    this.model.id = 2;
+    console.log(this.model);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    }
+    this.htttp.post<Contacts>(this.pathContacts, this.model, httpOptions).subscribe(data => { });
+  }
 }
- 

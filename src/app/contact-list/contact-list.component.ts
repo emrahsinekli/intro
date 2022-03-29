@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Contacts } from '../contacts';
 
 @Component({
   selector: 'app-contact-list',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private htttp: HttpClient) { }
+
+  displayedColumns: string[] = ['firstName', 'email', 'phone', 'jobTitle'];
+  dataSource!: Contacts[];
 
   ngOnInit(): void {
+    this.htttp.get<Contacts[]>("http://localhost:3000/contact").subscribe(data => {
+      this.dataSource = data;
+    });
   }
 
 }

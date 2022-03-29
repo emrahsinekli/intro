@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="example-form">
+  <form #contactAddFrom="ngForm" (ngSubmit)="add(contactAddFrom)" class="example-form">
 
     <div class="row">
       <div class="col-sm">
@@ -13,7 +13,7 @@
       <div class="col-sm">
       </div>
       <div class="col-sm">
-        <button type="button" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary" [disabled] ="contactAddFrom.invalid">Save</button>
       </div>
     </div>
     <hr>
@@ -28,14 +28,14 @@
         </svg>
       </div>
       <div class="col-sm-11">
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>First name</mat-label>
-          <input matInput>
+          <input #firstName="ngModel" [(ngModel)]="model.firstName" id="firstName" name="firstName" required matInput>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>Last name</mat-label>
-          <input matInput>
+          <input #lastName="ngModel" [(ngModel)]="model.lastName" id="lastName" name="lastName" required matInput>
         </mat-form-field>
       </div>
     </div>
@@ -50,13 +50,13 @@
         </svg>
       </div>
       <div class="col-sm-11">
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>Company</mat-label>
-          <input matInput>
+          <input #company="ngModel" [(ngModel)]="model.company" id="company" name="company" matInput>
         </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>Job title</mat-label>
-          <input matInput>
+          <input #jobTitle="ngModel" [(ngModel)]="model.jobTitle" id="jobTitle" name="jobTitle" matInput>
         </mat-form-field>
       </div>
     </div>
@@ -71,9 +71,9 @@
         </svg>
       </div>
       <div class="col-sm-11">
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>Email</mat-label>
-          <input matInput>
+          <input #email="ngModel" [(ngModel)]="model.email" id="email" name="email" matInput>
         </mat-form-field>
       </div>
     </div>
@@ -87,10 +87,21 @@
           </path>
         </svg>
       </div>
-      <div class="col-sm-11">
-        <mat-form-field class="example-full-width" appearance="fill">
+      
+      <div class="col-sm-5">
+        <mat-form-field  appearance="standard">
+          <mat-label clas="form-control">Country</mat-label>
+          <mat-select clas="form-control" #phoneCodeId="ngModel" [(ngModel)]="model.countryCode" id="countryCode"
+            name="phoneCode">
+            <mat-option *ngFor="let phoneCode of phoneCodes" [value]="phoneCode.dial_code">{{phoneCode.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>Phone</mat-label>
-          <input matInput>
+          <input #phone="ngModel" [(ngModel)]="model.phone" id="phone" name="phone" matInput>
         </mat-form-field>
       </div>
     </div>
@@ -105,9 +116,9 @@
         </svg>
       </div>
       <div class="col-sm-11">
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" appearance="standard">
           <mat-label>Notes</mat-label>
-          <textarea matInput></textarea>
+          <textarea #notes="ngModel" [(ngModel)]="model.notes" id="notes" name="notes" matInput></textarea>
         </mat-form-field>
       </div>
     </div>

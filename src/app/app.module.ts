@@ -47,6 +47,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MaterialExampleModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    HttpClientModule
  
   ],
   providers: [],
