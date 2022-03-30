@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Contacts } from '../contacts';
 import { SharedService } from '../shared/shared.service';
 import { Router } from '@angular/router';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-contact-list',
@@ -11,23 +12,37 @@ import { Router } from '@angular/router';
 })
 export class ContactListComponent implements OnInit {
 
-  constructor(private htttp: HttpClient, private shared: SharedService,private router: Router) { }
+ 
+  selection: any;
+
+  constructor(private htttp: HttpClient, private shared: SharedService, private router: Router) { }
 
   @Output() event = new EventEmitter<Contacts>()
 
-  displayedColumns: string[] = ['firstName', 'email', 'phone', 'jobTitle'];
+  displayedColumns: string[] = ['select','firstName', 'email', 'phone', 'jobTitle', 'star','edit','multiple'];
   dataSource!: Contacts[];
 
+initialSelection = [];
+ allowMultiSelect = true;
+
+
   ngOnInit(): void {
+    this.selection = new SelectionModel<Contacts>(this.allowMultiSelect, this.initialSelection);
+
+    
     this.htttp.get<Contacts[]>("http://localhost:3000/contact").subscribe(data => {
       this.dataSource = data;
     });
   }
 
   clickedRows = new Set<Contacts>();
-  openContactPreview(row: Contacts) {
-    
-    this.shared.setData(row)
-    this.router.navigate(['/contactPreview']);
+  openContactPreview(row: any) {
+      this.shared.setData(row)
+      this.router.navigate(['/contactPreview']);
+  
+  }
+
+  openalert() {
+    alert("dfasdf")
   }
 }

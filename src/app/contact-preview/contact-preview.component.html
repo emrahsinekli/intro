@@ -9,22 +9,18 @@
                 </div>
             </div>
             <div class="col-sm">
-                <div [ngIf]="contact" >
-                    <mat-form-field  class="example-full-width" appearance="standard">
-                        <mat-label>{{contact.firstName}}</mat-label>
-                      </mat-form-field>
+                <div *ngIf="contact">
+                    <p class="text-justify"> {{contact.firstName + ' ' + contact.lastName}}</p>
                 </div>
-                <div>
-
+                <div *ngIf="contact">
+                    <p class="text-justify">   {{contact.jobTitle + '●' + contact.company}}</p>
                 </div>
-                <div>
-
-                </div>
+              
             </div>
             <div class="col-sm">
             </div>
             <div class="col-sm">
-                <button type="submit" class="btn btn-primary" >Edit</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
             </div>
         </div>
         <hr>
