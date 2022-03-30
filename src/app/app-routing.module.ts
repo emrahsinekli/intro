@@ -12,7 +12,8 @@ import {MatInputModule} from '@angular/material/input';
 const routes: Routes = [
   {path:'',redirectTo : 'contact-list',pathMatch:'full'},
   {path:'createdContact',component:CreateContactComponent},
-  {path:'contactList',component:ContactListComponent}
+  {path:'contactList',component:ContactListComponent},
+  {path:'contactPreview',component:ContactPreviewComponent}
 
 ];
 

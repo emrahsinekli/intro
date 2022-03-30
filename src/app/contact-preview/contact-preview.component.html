@@ -1,1 +1,32 @@
-<p>contact-preview works!</p>
+<div class="container">
+    <form class="example-form">
+
+        <div class="row">
+            <div class="col-sm">
+                <div>
+                    <img src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png" class="LrbNhc XUdeqd"
+                        data-iml="11237200.2" data-atf="true">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div [ngIf]="contact" >
+                    <mat-form-field  class="example-full-width" appearance="standard">
+                        <mat-label>{{contact.firstName}}</mat-label>
+                      </mat-form-field>
+                </div>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+                <button type="submit" class="btn btn-primary" >Edit</button>
+            </div>
+        </div>
+        <hr>
+    </form>
+</div>

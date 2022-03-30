@@ -2,24 +2,24 @@
   "contact": [
     {
       "id": 0,
-      "countryCode": "TR",
+      "countryCode": "+90",
       "firstName": "Emrah",
       "lastName": "Sinekli",
       "company": "Dicle Elektrik",
       "jobTitle": "Software Engineer",
       "email": "emrahsinekli@gmail.com",
-      "phone": "+905465493463",
+      "phone": "5465493463",
       "notes": "Test"
     },
     {
       "id": 1,
-      "countryCode": "TR",
+      "countryCode": "+90",
       "firstName": "Cem",
       "lastName": "Toprak",
       "company": "Microsoft",
       "jobTitle": "Computer Engineer",
       "email": "cemtoprak@gmail.com",
-      "phone": "+905454785252",
+      "phone": "5454785252",
       "notes": "Test"
     },
     {
@@ -29,7 +29,7 @@
       "jobTitle": "Com. Eng",
       "email": "test@gmail.com",
       "countryCode": "+93",
-      "phone": "05465477474",
+      "phone": "5465477474",
       "notes": "vdfgfd",
       "id": 2
     }
