@@ -12,7 +12,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 })
 export class ContactListComponent implements OnInit {
 
-  selection: any;
+
 
 
   constructor(private htttp: HttpClient, private shared: SharedService, private router: Router) { }
@@ -24,19 +24,13 @@ export class ContactListComponent implements OnInit {
 
   initialSelection = [];
   allowMultiSelect = true;
+  styleHeader: any;
+
+  selectedItems = new SelectionModel<Contacts>(this.allowMultiSelect, this.initialSelection);
 
   ngOnInit(): void {
 
-     
- 
-
-
-
-    this.selection = new SelectionModel<Contacts>(this.allowMultiSelect, this.initialSelection);
-
- 
-
-    console.log(this.selection);
+    console.log(this.selectedItems.isEmpty)
 
 
     this.htttp.get<Contacts[]>("http://localhost:3000/contact").subscribe(data => {
@@ -48,14 +42,17 @@ export class ContactListComponent implements OnInit {
   openContactPreview(row: any) {
     this.shared.setData(row)
     this.router.navigate(['/contactPreview']);
-
   }
-
-
-
 
   openalert() {
-    alert("test");
+    console.log(this.selectedItems.isEmpty())
+    if (this.selectedItems.isEmpty()) {
+      (document.getElementsByTagName('headerButton')[0]).style.visibility = 'hidden';
+      (<HTMLElement>document.getElementById("headerName")).style.visibility = 'visible';
+     
+    } else {
+      (<HTMLElement>document.getElementById('headerButton')).style.visibility = 'visible';
+      (<HTMLElement>document.getElementById("headerName")).style.visibility = 'hidden';
+    }
   }
-
 }

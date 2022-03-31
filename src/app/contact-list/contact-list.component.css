@@ -43,13 +43,7 @@ background-color: rgba(230, 230, 230, 0.514);
   height: 24px;
   width: 24px
 }
-
-
 .hidden-row {
   display: none;
 }
 
-
-#headerRow {
-  visibility: hidden;
-}
