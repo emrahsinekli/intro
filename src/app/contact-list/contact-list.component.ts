@@ -12,24 +12,33 @@ import { SelectionModel } from '@angular/cdk/collections';
 })
 export class ContactListComponent implements OnInit {
 
- 
   selection: any;
+
 
   constructor(private htttp: HttpClient, private shared: SharedService, private router: Router) { }
 
   @Output() event = new EventEmitter<Contacts>()
 
-  displayedColumns: string[] = ['select','firstName', 'email', 'phone', 'jobTitle', 'star','edit','multiple'];
+  displayedColumns: string[] = ['select', 'firstName', 'email', 'phone', 'jobTitle', 'star', 'edit', 'multiple'];
   dataSource!: Contacts[];
 
-initialSelection = [];
- allowMultiSelect = true;
-
+  initialSelection = [];
+  allowMultiSelect = true;
 
   ngOnInit(): void {
+
+     
+ 
+
+
+
     this.selection = new SelectionModel<Contacts>(this.allowMultiSelect, this.initialSelection);
 
-    
+ 
+
+    console.log(this.selection);
+
+
     this.htttp.get<Contacts[]>("http://localhost:3000/contact").subscribe(data => {
       this.dataSource = data;
     });
@@ -37,12 +46,16 @@ initialSelection = [];
 
   clickedRows = new Set<Contacts>();
   openContactPreview(row: any) {
-      this.shared.setData(row)
-      this.router.navigate(['/contactPreview']);
-  
+    this.shared.setData(row)
+    this.router.navigate(['/contactPreview']);
+
   }
 
+
+
+
   openalert() {
-    alert("dfasdf")
+    alert("test");
   }
+
 }

@@ -44,3 +44,12 @@ background-color: rgba(230, 230, 230, 0.514);
   width: 24px
 }
 
+
+.hidden-row {
+  display: none;
+}
+
+
+#headerRow {
+  visibility: hidden;
+}
