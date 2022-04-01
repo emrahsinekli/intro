@@ -12,9 +12,6 @@ import { SelectionModel } from '@angular/cdk/collections';
 })
 export class ContactListComponent implements OnInit {
 
-
-
-
   constructor(private htttp: HttpClient, private shared: SharedService, private router: Router) { }
 
   @Output() event = new EventEmitter<Contacts>()
@@ -45,14 +42,6 @@ export class ContactListComponent implements OnInit {
   }
 
   openalert() {
-    console.log(this.selectedItems.isEmpty())
-    if (this.selectedItems.isEmpty()) {
-      (document.getElementsByTagName('headerButton')[0]).style.visibility = 'hidden';
-      (<HTMLElement>document.getElementById("headerName")).style.visibility = 'visible';
-     
-    } else {
-      (<HTMLElement>document.getElementById('headerButton')).style.visibility = 'visible';
-      (<HTMLElement>document.getElementById("headerName")).style.visibility = 'hidden';
-    }
+
   }
 }

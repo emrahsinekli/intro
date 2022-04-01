@@ -47,3 +47,10 @@ background-color: rgba(230, 230, 230, 0.514);
   display: none;
 }
 
+.some-class__success{
+  visibility: hidden;
+}
+
+.some-class__normal{
+  visibility: visible;
+}

@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="example-form">
+    <form #contactAddFrom="ngForm" class="example-form">
 
         <div class="row">
             <div class="col-sm">
@@ -8,14 +8,20 @@
                         data-iml="11237200.2" data-atf="true">
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col-md-4">
                 <div *ngIf="contact">
                     <p class="text-justify"> {{contact.firstName + ' ' + contact.lastName}}</p>
                 </div>
                 <div *ngIf="contact">
-                    <p class="text-justify">   {{contact.jobTitle + '●' + contact.company}}</p>
+                    <p class="text-justify"> {{contact.jobTitle + '●' + contact.company}}</p>
                 </div>
-              
+                <div class="col-sm-4" >
+                    <mat-label>
+                        <h5 class="time" >
+                            <mat-icon matSuffix >access_time</mat-icon>Local Time {{today | date:'h:mm a'}}
+                        </h5>
+                    </mat-label>
+                </div>
             </div>
             <div class="col-sm">
             </div>
@@ -23,6 +29,6 @@
                 <button type="submit" class="btn btn-primary">Edit</button>
             </div>
         </div>
-        <hr>
+        <h4><i class="material-icons" style="margin-right: 2px;">email</i> <i class="material-icons" style="margin-right: 2px;">date_range</i> <i class="material-icons" style="margin-right: px;">chat_bubble_outline</i> <i class="material-icons">videocam</i></h4>       
     </form>
 </div>
