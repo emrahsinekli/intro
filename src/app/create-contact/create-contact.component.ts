@@ -26,7 +26,7 @@ export class CreateContactComponent implements OnInit {
     });
   }
   add(form: NgForm) {
-    this.model.id = 2;
+ 
     console.log(this.model);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -34,5 +34,7 @@ export class CreateContactComponent implements OnInit {
       })
     }
     this.htttp.post<Contacts>(this.pathContacts, this.model, httpOptions).subscribe(data => { });
+
+    window.location.reload();
   }
 }

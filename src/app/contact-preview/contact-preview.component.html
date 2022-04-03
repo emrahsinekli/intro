@@ -2,33 +2,192 @@
     <form #contactAddFrom="ngForm" class="example-form">
 
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm-2 col-md-2">
                 <div>
                     <img src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png" class="LrbNhc XUdeqd"
                         data-iml="11237200.2" data-atf="true">
                 </div>
             </div>
-            <div class="col-md-4">
-                <div *ngIf="contact">
-                    <p class="text-justify"> {{contact.firstName + ' ' + contact.lastName}}</p>
+            <div class="col-sm-4 col-md-4">
+
+                <div class="col">
+                    <div *ngIf="contact">
+                        <p class="text-justify" style="font-size: x-large;"> {{contact.firstName + ' ' +
+                            contact.lastName}}</p>
+                    </div>
                 </div>
-                <div *ngIf="contact">
-                    <p class="text-justify"> {{contact.jobTitle + '●' + contact.company}}</p>
+                <div class="col">
+                    <div *ngIf="contact">
+                        <p class="text-justify" style="font-size: larger;"> {{contact.jobTitle + '●' + contact.company}}
+                        </p>
+                    </div>
                 </div>
-                <div class="col-sm-4" >
-                    <mat-label>
-                        <h5 class="time" >
-                            <mat-icon matSuffix >access_time</mat-icon>Local Time {{today | date:'h:mm a'}}
-                        </h5>
-                    </mat-label>
+
+                <div class="col">
+                    <div class="col-sm-2 col-md-2" class="outline" style="width: 170px;">
+                        <mat-icon style="margin-top: 2px;" matSuffix>access_time</mat-icon>
+                        <a>Local Time {{today | date:'h:mm a'}}</a>
+                    </div>
+                </div>
+
+                <div class="col" style="margin-top: 10px;">
+                    <i class="material-icons" matSuffix>label_outline</i>
                 </div>
             </div>
-            <div class="col-sm">
-            </div>
-            <div class="col-sm">
-                <button type="submit" class="btn btn-primary">Edit</button>
+            <div class="col-sm-4 order-md-4" style="margin-top: 100px;">
+                <div class="d-flex justify-content-end">
+                    <mat-icon class="material-icons" >star_border</mat-icon>
+                    <mat-icon class="material-icons" >more_vert</mat-icon>
+                    <button type="submit" (click)="openContactPreview(contact)" class="btn btn-primary">Edit</button>
+                </div>
+
             </div>
         </div>
-        <h4><i class="material-icons" style="margin-right: 2px;">email</i> <i class="material-icons" style="margin-right: 2px;">date_range</i> <i class="material-icons" style="margin-right: px;">chat_bubble_outline</i> <i class="material-icons">videocam</i></h4>       
+
+
+
+        <h4><i class="material-icons" style="margin-right: 2px;">email</i> <i class="material-icons"
+                style="margin-right: 2px;">date_range</i> <i class="material-icons"
+                style="margin-right: px;">chat_bubble_outline</i> <i class="material-icons">videocam</i></h4>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-sm-6" style="margin-bottom: 10px;">
+                                <b> Contact details</b>
+                            </div>
+                            <div class="col-sm-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon class="material-icons">email</mat-icon>
+                            </div>
+                            <div class="col-sm-11">
+                                <a href="mailto:{{contact.email}}">{{contact.email}}</a>
+                                <a> • Work</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon class="material-icons">phone</mat-icon>
+                            </div>
+                            <div class="col-sm-11">
+                                <a href="tel:{{contact.phone}}">{{ contact.countryCode + ''+ contact.phone}}</a>
+                                <a> • Work</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon class="material-icons">note</mat-icon>
+                            </div>
+                            <div class="col-sm-11">
+                                <mat-label>{{contact.notes}}</mat-label>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card style="margin-top: 20px;">
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-sm-6" style="margin-bottom: 10px;">
+                                <b> Directory profile</b>
+                            </div>
+                            <div class="col-sm-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon class="material-icons">mail</mat-icon>
+                            </div>
+                            <div class="col-sm-11">
+                                <a href="mailto:{{contact.email}}">{{contact.email}}</a>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-sm-6">
+                <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <b> Recent intreactions</b>
+                            </mat-panel-title>
+                            <mat-panel-description>
+
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <mat-icon class="material-icons">mail_outline</mat-icon>
+                                </div>
+                                <div class="col-sm-11">
+                                    <a>Feb 4 </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <mat-icon class="material-icons">mail_outline</mat-icon>
+                            </div>
+                            <div class="col-sm-11">
+                                <a>247PRO Hirin - Softeware Engiineer</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon class="material-icons">mail_outline</mat-icon>
+                            </div>
+                            <div class="col-sm-11">
+                                <a>Delivery Status Notification(Failure) </a>
+                            </div>
+                        </div>
+
+                    </mat-expansion-panel>
+
+
+                </mat-accordion>
+                <mat-accordion>
+                    <mat-expansion-panel style="margin-top: 20px;" (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <b>Shared files</b>
+                            </mat-panel-title>
+                            <mat-panel-description>
+
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <mat-icon class="material-icons">insert_drive_file</mat-icon>
+                                </div>
+                                <div class="col-sm-11">
+                                    <a>247PRO FRONTEND CASE STUDY 1</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <mat-icon class="material-icons">attach_file</mat-icon>
+                            </div>
+                            <div class="col-sm-11">
+                                <a>247PRO FRONTEND CASE STUDY 2</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon class="material-icons">attach_file</mat-icon>
+                            </div>
+                            <div class="col-sm-11">
+                                <a>247PRO FRONTEND CASE STUDY 3</a>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
     </form>
+
 </div>

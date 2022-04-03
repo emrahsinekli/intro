@@ -13,7 +13,8 @@ const routes: Routes = [
   {path:'',redirectTo : 'contact-list',pathMatch:'full'},
   {path:'createdContact',component:CreateContactComponent},
   {path:'contactList',component:ContactListComponent},
-  {path:'contactPreview',component:ContactPreviewComponent}
+  {path:'contactPreview',component:ContactPreviewComponent},
+  {path:'editContact',component:EditContactComponent}
 
 ];
 

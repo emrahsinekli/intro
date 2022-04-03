@@ -6,6 +6,11 @@
     width: 162px
 }
 
+.outline{
+  border-radius: 30px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
   @media screen and (max-width: 840px),(max-height:400px) {
     .LrbNhc {
       
@@ -20,6 +25,13 @@
       height: 80px;
       width: 80px
   }
+
+
+  .outline{
+    border-radius: 30px;
+    border: 1px solid rgb(0, 0, 0);
+  }
+  
 }
 
 .ylXTve {
@@ -42,7 +54,6 @@
 .time {
   border-radius: 40px;
   border: 1px solid rgb(0, 0, 0);
-  width: auto;
 }
 
 h4 {
@@ -66,3 +77,5 @@ i{
   border-radius: 40px;
   border: 1px solid rgb(0, 0, 0);
 }
+
+
