@@ -9,6 +9,7 @@
       "countryCode": "+90",
       "phone": "05465477474",
       "notes": "By default, the menu will display below (y-axis), after (x-axis), without overlapping its trigger. The position can be changed using the xPosition (before | after) and yPosition (above | below) attributes. The menu can be forced to overlap the trigger using the overlapTrigger attribute.",
+      "isDeleted": false,
       "id": 1
     },
     {
@@ -20,7 +21,20 @@
       "countryCode": "+355",
       "phone": "05465477474",
       "notes": "Testtt",
+      "isDeleted": false,
       "id": 2
+    },
+    {
+      "firstName": "Ali",
+      "lastName": "toprak",
+      "company": "Samsung",
+      "jobTitle": "Com. Eng",
+      "email": "test@gmail.com",
+      "countryCode": "+358",
+      "phone": "05465477474",
+      "notes": "Test",
+      "isDeleted": true,
+      "id": 3
     }
   ],
   "phoneCode": [

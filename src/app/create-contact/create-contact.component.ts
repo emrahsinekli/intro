@@ -26,13 +26,14 @@ export class CreateContactComponent implements OnInit {
     });
   }
   add(form: NgForm) {
- 
+
     console.log(this.model);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       })
     }
+    this.model.isDeleted = false;
     this.htttp.post<Contacts>(this.pathContacts, this.model, httpOptions).subscribe(data => { });
 
     window.location.reload();

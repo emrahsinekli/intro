@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, IterableDiffers } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Contacts } from '../contacts';
 import { SharedService } from '../shared/shared.service';
 import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatDialog } from '@angular/material/dialog';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-contact-list',
@@ -35,7 +36,7 @@ export class ContactListComponent implements OnInit {
     console.log(this.selectedItems.isEmpty)
 
 
-    this.htttp.get<Contacts[]>("http://localhost:3000/contact").subscribe(data => {
+    this.htttp.get<Contacts[]>(this.pathContacts + "/?isDeleted=false").subscribe(data => {
       this.dataSource = data;
     });
 
@@ -56,29 +57,29 @@ export class ContactListComponent implements OnInit {
     let selectedFileIds: number[] = [];
 
     let deletedContact: String
-    for (let item of this.selectedItems.selected) {
-      console.log(item.id);
-      selectedFileIds.push(item.id);
-      this.deletedContact = this.deletedContact + " " + item.firstName
-    }
+
     if (confirm("Are you sure ?")) {
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         })
       }
-      selectedFileIds.forEach(id => {
+      for (let item of this.selectedItems.selected) {
+        console.log(item.id);
+        selectedFileIds.push(item.id);
+        this.deletedContact = this.deletedContact + " " + item.firstName
 
-        this.htttp.delete<Contacts>(this.pathContacts + "/" + id, httpOptions).subscribe(data => { id = data.id });
-      })
+        item.isDeleted = true
+        this.htttp.patch<Contacts>(this.pathContacts + "/" + item.id, item, httpOptions).subscribe(data => { data.isDeleted = true }
+        );
+      }
+
     }
     selectedFileIds = [];
     this.deletedContact = ""
     window.location.reload();
   }
   deleteOneSelected() {
-    if (confirm("One column deleted")) {
-      alert("Silindi")
-    }
+    //TODO
   }
 }

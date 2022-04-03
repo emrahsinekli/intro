@@ -1,1 +1,65 @@
-<p>deleted-contact-list works!</p>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selectedItems.toggle(row) : null  ;  "
+        [checked]="selectedItems.isSelected(row)">
+      </mat-checkbox>
+      <img src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png" class="LrbNhc" data-iml="11237200.2"
+        data-atf="true">
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef>
+      <div class="row">
+        <div class="col-sm-2" [ngClass]="selectedItems.isEmpty() ? 'some-class__normal' : 'some-class__success'">
+          <p id="headerName" style="font-size:15px">Name</p>
+        </div>
+        <div class="col-sm-6" [ngClass]="selectedItems.isEmpty() ? 'some-class__success' : 'some-class__normal'">
+          <button type="button" (click)="recoveryOrDeleteMultibleSelected(true)" class="btn btn-primary">Recovery</button>
+          <button type="button" (click)="recoveryOrDeleteMultibleSelected(false)" class="btn btn-primary" style="margin-left: 1px;">Delete Forever</button>
+        </div>
+
+      </div>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.firstName + " "+ element.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>
+      <p id="headerName" [ngClass]="selectedItems.isEmpty() ? 'some-class__normal' : 'some-class__success'"
+        style="font-size:15px">Email</p>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef>
+      <p id="headerName" [ngClass]="selectedItems.isEmpty() ? 'some-class__normal' : 'some-class__success'"
+        style="font-size:15px">Phone Number</p>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{ element.countryCode + "" + element.phone}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="jobTitle">
+    <th mat-header-cell *matHeaderCellDef>
+      <p id="headerName" [ngClass]="selectedItems.isEmpty() ? 'some-class__normal' : 'some-class__success'"
+        style="font-size:15px">Job title & Company</p>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.jobTitle + "," + element.company}} </td>
+  </ng-container>
+
+
+  <ng-container cdkColumnDef="recovery">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element">
+      <i (click)="recoveryOrDeleteMultibleSelected(true)" class="material-icons" (click)="$event.stopPropagation()">restore</i>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row (click)="openContactPreview(row)" [class.demo-row-is-clicked]="clickedRows.has(row)"
+    *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

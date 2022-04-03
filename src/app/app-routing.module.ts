@@ -14,7 +14,8 @@ const routes: Routes = [
   {path:'createdContact',component:CreateContactComponent},
   {path:'contactList',component:ContactListComponent},
   {path:'contactPreview',component:ContactPreviewComponent},
-  {path:'editContact',component:EditContactComponent}
+  {path:'editContact',component:EditContactComponent},
+  {path:'deletedContact',component:DeletedContactListComponent}
 
 ];
 

@@ -8,4 +8,5 @@ export class Contacts {
     phone!: string;
     notes!: string;
     countryCode!:string;
+    isDeleted!:boolean;
   }

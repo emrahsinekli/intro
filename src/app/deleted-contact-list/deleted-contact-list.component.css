@@ -1,0 +1,58 @@
+.demo-table {
+    width: 100%;
+  }
+  
+  .mat-row .mat-cell {
+    cursor: pointer;
+  }
+  
+  .mat-row:hover .mat-cell {
+  background-color: rgba(230, 230, 230, 0.514);
+  }
+  
+  
+  .demo-row-is-clicked {
+  
+  }
+  
+  .mat-row mat-checkbox {
+    display: none;
+  }
+  .mat-row:hover mat-checkbox {
+    display: block;
+  }
+  
+  .mat-row img {
+    display: block;
+  }
+  .mat-row:hover img {
+    display: none;
+  }
+  
+  .mat-row i {
+    visibility: hidden;
+  }
+  .mat-row:hover i {
+    visibility: visible;
+  }
+  
+  .LrbNhc {
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: inline-block;
+    height: 24px;
+    width: 24px
+  }
+  .hidden-row {
+    display: none;
+  }
+  
+  .some-class__success{
+    visibility: hidden;
+  }
+  
+  .some-class__normal{
+    visibility: visible;
+  }
+  
+  
