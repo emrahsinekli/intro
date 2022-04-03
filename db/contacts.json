@@ -6,7 +6,7 @@
       "company": "Eksim Holding",
       "jobTitle": "Com. Eng",
       "email": "test@gmail.com",
-      "countryCode": "+355",
+      "countryCode": "+90",
       "phone": "05465477474",
       "notes": "By default, the menu will display below (y-axis), after (x-axis), without overlapping its trigger. The position can be changed using the xPosition (before | after) and yPosition (above | below) attributes. The menu can be forced to overlap the trigger using the overlapTrigger attribute.",
       "id": 1

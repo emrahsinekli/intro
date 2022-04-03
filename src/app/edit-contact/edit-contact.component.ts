@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Contacts } from '../contacts';
 import { PhoneCodes } from '../PhoneCodes';
 import { SharedService } from '../shared/shared.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-edit-contact',
@@ -13,7 +14,7 @@ import { SharedService } from '../shared/shared.service';
 })
 export class EditContactComponent implements OnInit {
 
-  constructor(private htttp: HttpClient, private shared: SharedService, private router: Router) { }
+  constructor(private htttp: HttpClient, private shared: SharedService, private router: Router,private location: Location) { }
   pathPhoneCode = "http://localhost:3000/phoneCode";
   pathContacts = "http://localhost:3000/contact";
   phoneCodes!: PhoneCodes[];
@@ -26,6 +27,11 @@ export class EditContactComponent implements OnInit {
     this.htttp.get<PhoneCodes[]>(this.pathPhoneCode).subscribe(data => {
       this.phoneCodes = data;
     });
+  }
+
+
+  back(): void {
+    this.location.back()
   }
 
   update(form: NgForm) {

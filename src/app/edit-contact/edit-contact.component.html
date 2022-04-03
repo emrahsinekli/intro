@@ -1,19 +1,26 @@
+<i type="button" class="material-icons" (click)="back()" style="border-radius: 40px; border: 1px solid black;">close</i>
 <div class="container">
   <form #contactAddFrom="ngForm" (ngSubmit)="update(contactAddFrom)" class="example-form">
-
     <div class="row">
-      <div class="col-sm">
+      <div class="col-sm-4 col-md-4">
         <div>
           <img src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png" class="LrbNhc XUdeqd" data-iml="11237200.2"
             data-atf="true">
         </div>
       </div>
-      <div class="col-sm">
+      <div class="col-sm-4 col-md-4">
+        <div *ngIf="contact" style="margin-top: 50px;">
+          <p class="text-justify" style="font-size: x-large;"> {{contact.firstName + ' ' +
+            contact.lastName}}</p>
+        </div>
+        <div class="col" style="margin-top: 10px; ">
+          <i class="material-icons" style="border-radius: 40px; border: 1px solid black;" matSuffix>label_outline</i>
       </div>
-      <div class="col-sm">
       </div>
-      <div class="col-sm">
-        <button type="submit" class="btn btn-primary" [disabled] ="contactAddFrom.invalid">Save</button>
+      <div class="col-sm-4 col-md-4" style="margin-top: 100px;">
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary" [disabled]="contactAddFrom.invalid">Save</button>
+        </div>
       </div>
     </div>
     <hr>
@@ -87,13 +94,14 @@
           </path>
         </svg>
       </div>
-      
+
       <div class="col-sm-5">
-        <mat-form-field  appearance="standard">
+        <mat-form-field appearance="standard">
           <mat-label clas="form-control">Country</mat-label>
           <mat-select clas="form-control" #phoneCodeId="ngModel" [(ngModel)]="contact.countryCode" id="countryCode"
             name="phoneCode">
-            <mat-option *ngFor="let phoneCode of phoneCodes" [value]="phoneCode.dial_code">{{phoneCode.name}}</mat-option>
+            <mat-option *ngFor="let phoneCode of phoneCodes" [value]="phoneCode.dial_code">{{phoneCode.name}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
 
