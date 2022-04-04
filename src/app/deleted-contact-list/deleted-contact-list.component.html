@@ -18,7 +18,7 @@
         <div class="col-sm-2" [ngClass]="selectedItems.isEmpty() ? 'some-class__normal' : 'some-class__success'">
           <p id="headerName" style="font-size:15px">Name</p>
         </div>
-        <div class="col-sm-6" [ngClass]="selectedItems.isEmpty() ? 'some-class__success' : 'some-class__normal'">
+        <div class="col-sm-8 col-md-8" [ngClass]="selectedItems.isEmpty() ? 'some-class__success' : 'some-class__normal'">
           <button type="button" (click)="recoveryOrDeleteMultibleSelected(true)" class="btn btn-primary">Recovery</button>
           <button type="button" (click)="recoveryOrDeleteMultibleSelected(false)" class="btn btn-primary" style="margin-left: 1px;">Delete Forever</button>
         </div>
